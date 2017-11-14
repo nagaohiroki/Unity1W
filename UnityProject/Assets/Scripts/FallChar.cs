@@ -1,18 +1,28 @@
 ﻿using UnityEngine;
 public class FallChar : MonoBehaviour
 {
+	[SerializeField]
+	TextMesh mText;
+	[SerializeField]
+	GameManager mGameManager;
 	const float mEndY = -10.0f;
 	const float mStartY = 10.0f;
 	float mSpeed;
+	public bool IsHankaku
+	{
+		get
+		{
+			return mText.text.IndexOf( '　' ) == -1;
+		}
+	}
 	public void SetParameter( string inChar, float inSpeed )
 	{
 		mSpeed = inSpeed;
-		var txt = GetComponent<TextMesh>();
-		if( txt == null )
+		if( mText == null )
 		{
 			return;
 		}
-		txt.text = inChar;
+		mText.text = inChar;
 	}
 	void Start()
 	{
@@ -21,9 +31,14 @@ public class FallChar : MonoBehaviour
 	void Update()
 	{
 		transform.Translate( Vector3.down * mSpeed * Time.deltaTime );
-		if( transform.position.y < mEndY )
+		if( transform.position.y > mEndY )
 		{
-			Destroy( gameObject );
+			return;
+		}
+		Destroy( gameObject );
+		if( !IsHankaku )
+		{
+			mGameManager.GameOver();
 		}
 	}
 }

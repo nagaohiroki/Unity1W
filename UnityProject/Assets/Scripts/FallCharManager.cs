@@ -3,16 +3,13 @@ public class FallCharManager : MonoBehaviour
 {
 	string[] mChars =
 	{
-		"a", "ａ",
-		"b", "ｂ"
+		"a a",
+		"a　a"
 	};
 	[SerializeField]
 	FallChar mFallCharPrefab;
 	void Update()
 	{
-		if( Input.GetKeyDown( KeyCode.Alpha0 ) )
-		{
-		}
 		if( Time.frameCount % 30 == 0 )
 		{
 			GenerateFallChar( RandChar(), 10.0f );

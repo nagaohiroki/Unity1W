@@ -7,10 +7,16 @@ public class Space : MonoBehaviour
 	BoxCollider2D mCol;
 	[SerializeField]
 	Renderer mRenderer;
+	[SerializeField]
+	GameManager mGameManager;
+
+	const float mScaleYBias = 0.5f;
 	void Change( string inText )
 	{
 		mText.text = inText;
-		mCol.size = mRenderer.bounds.size;
+		Vector3 size = mRenderer.bounds.size;
+		size.y *= mScaleYBias;
+		mCol.size = size;
 		Vector2 offset = mRenderer.bounds.extents;
 		offset.y = -offset.y;
 		mCol.offset = offset;
@@ -29,5 +35,18 @@ public class Space : MonoBehaviour
 		{
 			Change( "BackSpace" );
 		}
+	}
+	void OnTriggerEnter2D( Collider2D inCollider )
+	{
+		var fallChar = inCollider.gameObject.GetComponent<FallChar>();
+		if( fallChar == null )
+		{
+			return;
+		}
+		if(fallChar.IsHankaku)
+		{
+			mGameManager.GameOver();
+		}
+		Destroy( fallChar.gameObject );
 	}
 }
