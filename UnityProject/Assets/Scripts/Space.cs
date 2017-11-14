@@ -1,27 +1,33 @@
 ﻿using UnityEngine;
-
 public class Space : MonoBehaviour
 {
 	[SerializeField]
-	TextMesh Text;
-
-	// Use this for initialization
+	TextMesh mText;
+	[SerializeField]
+	BoxCollider2D mCol;
+	[SerializeField]
+	Renderer mRenderer;
+	void Change( string inText )
+	{
+		mText.text = inText;
+		mCol.size = mRenderer.bounds.size;
+		Vector2 offset = mRenderer.bounds.extents;
+		offset.y = -offset.y;
+		mCol.offset = offset;
+	}
 	void Start()
 	{
-
+		Change( "Space" );
 	}
-
-	// Update is called once per frame
 	void Update()
 	{
 		if( Input.GetKeyDown( KeyCode.Space ) )
 		{
-			Text.text = "Space";
+			Change( "Space" );
 		}
 		if( Input.GetKeyDown( KeyCode.Backspace ) )
 		{
-			Text.text = "BackSpace";
+			Change( "BackSpace" );
 		}
-
 	}
 }

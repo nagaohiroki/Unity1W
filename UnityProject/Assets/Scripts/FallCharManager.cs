@@ -34,6 +34,7 @@ public class FallCharManager : MonoBehaviour
 		{
 			return;
 		}
+		fallChar.gameObject.SetActive( true );
 		fallChar.SetParameter( inChar, inSpeed );
 	}
 }
