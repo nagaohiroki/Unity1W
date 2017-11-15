@@ -35,6 +35,7 @@ public class Space : MonoBehaviour
 		{
 			Change( "BackSpace" );
 		}
+		mText.color =  mGameManager.IsGameOver ? Color.red : Color.white;
 	}
 	void OnTriggerEnter2D( Collider2D inCollider )
 	{
@@ -43,7 +44,7 @@ public class Space : MonoBehaviour
 		{
 			return;
 		}
-		if(fallChar.IsHankaku)
+		if( fallChar.IsHankaku )
 		{
 			mGameManager.GameOver();
 		}

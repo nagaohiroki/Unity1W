@@ -30,6 +30,11 @@ public class FallChar : MonoBehaviour
 	}
 	void Update()
 	{
+		if( mGameManager.IsGameOver )
+		{
+			Destroy( gameObject );
+			return;
+		}
 		transform.Translate( Vector3.down * mSpeed * Time.deltaTime );
 		if( transform.position.y > mEndY )
 		{
