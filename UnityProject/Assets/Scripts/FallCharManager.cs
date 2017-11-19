@@ -2,7 +2,28 @@
 using System.Collections.Generic;
 public class FallCharManager : MonoBehaviour
 {
-
+	readonly List<string> mTutorial = new List<string>
+	{
+		"ここの",
+		"文字に",
+		"全角スペースが",
+		"入っている",
+		"時だけ",
+		"BackSpaceキーを",
+		"押してね",
+		"それ以外の時は",
+		"Spaceキーを",
+		"押してね",
+		"GameOverした時",
+		"Spaceキーで",
+		"リトライできるよ",
+		"StageClearした時も",
+		"Spaceキーで",
+		"次のステージに行けるよ",
+		"では",
+		"よーい",
+		"ス タ　ー ト !",
+	};
 	[SerializeField]
 	Color mStart;
 	[SerializeField]
@@ -16,20 +37,25 @@ public class FallCharManager : MonoBehaviour
 	List<string> mChars;
 	List<GameObject> mFallChars = new List<GameObject>();
 	int mProgress;
-	int mStage = 1;
-	const float mBaseSpeed = 10.0f;
-	const float mStageWeightSpeed = 0.3f;
+	int mStage;
+	const float mBaseSpeed = 8.0f;
+	const float mStageWeightSpeed = 0.5f;
 	const int mCharBaseCount = 3;
-	const int mLastStage = 1000000;
 	public void Initialize()
 	{
+		mProgress = 0;
 		ClearFallChars();
+		if( mStage == 0 )
+		{
+			mChars = new List<string>();
+			mChars.AddRange( mTutorial );
+			return;
+		}
 		GenerateChars();
 	}
 	void GenerateChars()
 	{
 		mChars = new List<string>();
-		mProgress = 0;
 		int count = mCharBaseCount + mStage;
 		for( int i = 0; i < count; ++i )
 		{
