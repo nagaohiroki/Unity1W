@@ -11,11 +11,11 @@ public class Space : MonoBehaviour
 	GameManager mGameManager;
 	[SerializeField]
 	FallCharManager mFallCharManager;
-	void Change( string inText, Color inColor )
+	void Change( string inText )
 	{
 		// テキスト
 		mText.text = inText;
-		mText.color = inColor;
+		mText.color = Color.white;
 		// サイズ
 		Vector3 size = mRenderer.bounds.size;
 		size.y *= 0.5f;
@@ -29,16 +29,16 @@ public class Space : MonoBehaviour
 	{
 		if( Input.GetKeyDown( KeyCode.Space ) )
 		{
-			Change( "Space", Color.white );
+			Change( "Space" );
 		}
 		if( Input.GetKeyDown( KeyCode.Backspace ) )
 		{
-			Change( "BackSpace", Color.white );
+			Change( "BackSpace" );
 		}
 	}
 	void Start()
 	{
-		Change( "Space", Color.white );
+		Change( "Space" );
 	}
 	void Update()
 	{
@@ -46,7 +46,7 @@ public class Space : MonoBehaviour
 		{
 			if( Input.GetKeyDown( KeyCode.Space ) )
 			{
-				Change( "Space", Color.white );
+				Change( "Space" );
 				mGameManager.Retry();
 				mFallCharManager.Initialize();
 			}
@@ -54,13 +54,13 @@ public class Space : MonoBehaviour
 		}
 		if( mGameManager.IsGameOver )
 		{
-			Change( "GameOver..", Color.red );
+			Change( "GameOver" );
 			mGameManager.IsRetryWait = true;
 			return;
 		}
 		if( mGameManager.IsGameClear )
 		{
-			Change( "StageClear!", Color.blue );
+			Change( "StageClear!" );
 			mGameManager.IsRetryWait = true;
 			return;
 		}
