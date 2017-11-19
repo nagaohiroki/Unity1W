@@ -181,7 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mStart: {r: 0, g: 0, b: 0, a: 0}
   mEnd: {r: 0, g: 0, b: 0, a: 0}
-  mFrame: 40
+  mFrame: 50
   mFallCharPrefab: {fileID: 921028371}
   mGameManager: {fileID: 58526500}
 --- !u!4 &176179480

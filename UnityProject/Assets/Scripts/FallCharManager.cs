@@ -41,8 +41,8 @@ public class FallCharManager : MonoBehaviour
 	List<GameObject> mFallChars = new List<GameObject>();
 	int mProgress;
 	int mStage;
-	const float mBaseSpeed = 8.0f;
-	const float mStageWeightSpeed = 0.5f;
+	const float mBaseSpeed = 5.0f;
+	const float mStageWeightSpeed = 0.3f;
 	const int mCharBaseCount = 3;
 	public void Initialize()
 	{
