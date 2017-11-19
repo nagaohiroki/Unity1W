@@ -9,7 +9,7 @@ public class FallChar : MonoBehaviour
 	TextMesh mText;
 	[SerializeField]
 	GameManager mGameManager;
-	Vector3 mStart = new Vector3( 1.0f, 10.0f, 0.0f );
+	readonly Vector3 mStart = new Vector3( 5.0f, 10.0f, 0.0f );
 	float mSpeed;
 	bool IsZenkaku
 	{

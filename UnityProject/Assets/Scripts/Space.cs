@@ -60,7 +60,7 @@ public class Space : MonoBehaviour
 		}
 		if( mGameManager.IsGameClear )
 		{
-			Change( "GameClear!", Color.blue );
+			Change( "StageClear!", Color.blue );
 			mGameManager.IsRetryWait = true;
 			return;
 		}

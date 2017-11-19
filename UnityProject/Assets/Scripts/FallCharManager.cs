@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 public class FallCharManager : MonoBehaviour
 {
+
+	[SerializeField]
+	Color mStart;
+	[SerializeField]
+	Color mEnd;
 	[SerializeField]
 	int mFrame;
 	[SerializeField]
@@ -15,6 +20,7 @@ public class FallCharManager : MonoBehaviour
 	const float mBaseSpeed = 10.0f;
 	const float mStageWeightSpeed = 0.3f;
 	const int mCharBaseCount = 3;
+	const int mLastStage = 1000000;
 	public void Initialize()
 	{
 		ClearFallChars();
@@ -30,7 +36,7 @@ public class FallCharManager : MonoBehaviour
 			var str = string.Format( "Stage {0} - {1} / {2}", mStage, i + 1, count );
 			if( Random.Range( 0, 3 ) == 0 )
 			{
-				 str = RandromReplace( str, " ", "　" );
+				str = RandromReplace( str, " ", "　" );
 			}
 			mChars.Add( str );
 		}
