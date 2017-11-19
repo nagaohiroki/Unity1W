@@ -4,25 +4,11 @@ public class FallCharManager : MonoBehaviour
 {
 	readonly List<string> mTutorial = new List<string>
 	{
-		"ここの",
-		"文字に",
+		"ここの文字の中に",
 		"全角スペースが",
-		"入っている",
-		"時だけ",
+		"入っていたら",
 		"BackSpaceキーを",
 		"押してね",
-		"それ以外の時は",
-		"Spaceキーを",
-		"押してね",
-		"GameOverした時",
-		"Spaceキーで",
-		"リトライできるよ",
-		"クリアした時も",
-		"Spaceキーで",
-		"次に行けるよ",
-		"ステージは",
-		"全部で",
-		"100以上あるよ",
 		"では",
 		"よーい",
 		"ス タ　ー ト !",
@@ -31,8 +17,6 @@ public class FallCharManager : MonoBehaviour
 	Color mStart;
 	[SerializeField]
 	Color mEnd;
-	[SerializeField]
-	int mFrame;
 	[SerializeField]
 	FallChar mFallCharPrefab;
 	[SerializeField]
@@ -44,6 +28,7 @@ public class FallCharManager : MonoBehaviour
 	const float mBaseSpeed = 5.0f;
 	const float mStageWeightSpeed = 0.3f;
 	const int mCharBaseCount = 3;
+	const int mFrame = 70;
 	public void Initialize()
 	{
 		mProgress = 0;
