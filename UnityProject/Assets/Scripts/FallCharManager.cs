@@ -22,7 +22,7 @@ public class FallCharManager : MonoBehaviour
 		"次に行けるよ",
 		"ステージは",
 		"全部で",
-		"100万以上あるよ",
+		"100以上あるよ",
 		"では",
 		"よーい",
 		"ス タ　ー ト !",
